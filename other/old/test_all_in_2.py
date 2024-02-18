@@ -7,6 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 import time
+import os
+from pathlib import Path
 
 
 class SeleniumAction:
@@ -102,14 +104,16 @@ class TestData:
     # опция выпадающего списка сортировки
     data_sort_option_low = "Price (low to high)"
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def browser():
-    gecko_path = r"C:\Users\Rumata\PycharmProjects\PythonTestProject\config\geckodriver.exe"
+    current_dir = Path(__file__).resolve().parent
+    project_root = current_dir.parent.parent
+    gecko_path = project_root / "config" / "geckodriver.exe"
     web_service = Service(gecko_path)
     driver = webdriver.Firefox(service=web_service)
-    driver.get("https://www.saucedemo.com/")
+    driver.get(TestData.data_web_adres)
     yield driver
-#    driver.quit()
+    driver.quit()
 
 @pytest.fixture
 def selenium_action(browser):
@@ -161,14 +165,14 @@ def get_product(browser, selenium_action):
 def login_successful(browser):
     def test_login_successful_function():
         assert "https://www.saucedemo.com/inventory.html" in browser.current_url.lower()
-        print('Вход успешный')
+        print('\n--- Вход успешный ---')
     yield test_login_successful_function
 
 @pytest.fixture
 def logout_successful(browser):
     def test_logout_successful_function():
         assert "https://www.saucedemo.com/" in browser.current_url.lower()
-        print('Выход успешный')
+        print('\n--- Выход успешный ---')
     yield test_logout_successful_function
 
 @pytest.fixture
@@ -176,14 +180,14 @@ def sort_products_successful(browser, selenium_action):
     def sort_products_successful_function():
         first_product_id = selenium_action.action_get_attribute(TestLocators.locator_sort_first_prod, "id")
         assert first_product_id == "item_2_img_link"
-        print('Сортировка успешна')
+        print('\n--- Сортировка успешна ---')
     yield sort_products_successful_function
 
 @pytest.fixture
 def get_product_successful(browser):
     def get_product_successful_function():
         assert "https://www.saucedemo.com/checkout-complete.html" in browser.current_url.lower()
-        print('Покупка успешна')
+        print('\n--- Покупка успешна ---')
     yield get_product_successful_function
 
 class TestSaucedemo:

@@ -104,7 +104,7 @@ class TestData:
 
 @pytest.fixture
 def browser():
-    gecko_path = r"C:\Users\Rumata\PycharmProjects\PythonTestProject\config\geckodriver.exe"
+    gecko_path = r"geckodriver.exe"
     web_service = Service(gecko_path)
     driver = webdriver.Firefox(service=web_service)
     driver.get("https://www.saucedemo.com/")
