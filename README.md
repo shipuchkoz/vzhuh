@@ -1,2 +1,2 @@
 # PyTestProject
-Мои опыты с использованием Python и Selenium
+Опыты по использованиею Python \ Pytest \ Selenium
