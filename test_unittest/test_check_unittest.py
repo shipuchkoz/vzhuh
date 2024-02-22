@@ -4,11 +4,14 @@ from selenium.webdriver.firefox.service import Service
 from test_action_unittest import SeleniumAction
 from test_locator_unittest import *
 from test_data_unittest import *
+from pathlib import Path
 
 class TestSaucedemoChecks(unittest.TestCase):
     def setUp(self):
         """Настройка перед выполнением каждого теста"""
-        gecko_path = r"geckodriver.exe"
+        current_dir = Path(__file__).resolve().parent
+        project_root = current_dir.parent
+        gecko_path = project_root / "config" / "geckodriver.exe"
         web_service = Service(gecko_path)
         self.browser = webdriver.Firefox(service=web_service)
         self.browser.get("https://www.saucedemo.com/")

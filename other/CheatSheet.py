@@ -1,5 +1,4 @@
 """ПРОВЕРКИ"""
-
 def test_open_in_new_tab(self, browser):
     # Открываем новую вкладку
     browser.execute_script("window.open('');")
@@ -9,8 +8,7 @@ def test_open_in_new_tab(self, browser):
     assert len(browser.window_handles) == 2
     print("Открыли новую вкладку")
 
-"""РАБОТЫ С ФИКСТУРАМИ"""
-
+"""ФИКСТУРЫ"""
 @pytest.fixture(scope="module") # область видимости фикстуры,
 def setup_module_fixture():
     print("\n--- Setup Module Fixture ---")
@@ -48,7 +46,7 @@ def test_example(setup_module_fixture, param_fixture, id_fixture):
 def name_fixture():
     print("\n--- Name Fixture ---")
 
-"""ПЕРЕХОДЫ ПО ДИРЕКТОРИЯМ"""
+"""ДИРЕКТОРИИ"""
 """os"""
 import os
 # Получаем путь к текущему скрипту
