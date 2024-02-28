@@ -268,3 +268,17 @@ class SeleniumAction:
             self.driver.save_screenshot(filename)
         except Exception as e:
             print(f"Ошибка создания скриншота: {e}")
+
+    def assert_check_element_in_elements(self, locator, text):
+        elements = self.driver.find_elements(*locator)
+        for element in elements:
+            if text in element.text:
+                return True
+        return False
+
+    def get_all_elements(self):
+        elements = self.driver.find_elements(By.XPATH, "//*")
+        for element in elements:
+            outer_html = element.get_attribute('outerHTML')
+            print(f"Outer HTML for element: {outer_html}")
+        return elements

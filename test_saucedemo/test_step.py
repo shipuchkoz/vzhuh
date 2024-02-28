@@ -1,4 +1,4 @@
-from config.setting import *
+from config.config_saucedemo import *
 from test_saucedemo.locator import *
 from test_saucedemo.test_data import *
 
