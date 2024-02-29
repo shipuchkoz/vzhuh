@@ -1,8 +1,8 @@
 from test_saucedemo.test_step import *
 
-# pytest test_check_pytest.py \ pytest -m smoke test_check_pytest.py
+# pytest test_check_pytest.py \ pytest -m smoke test_check_pytest.py \ pytest --markers smoke_market
 
-@pytest.mark.smoke # pytest -k test_login_successful test_check_pytest.py
+@pytest.mark.smoke_market # pytest -k test_login_successful test_check_pytest.py
 def test_login_successful(browser, selenium_action, login, logout):
     """Проверка входа"""
     login()
@@ -12,7 +12,7 @@ def test_login_successful(browser, selenium_action, login, logout):
     logout()
     selenium_action.action_close_current_window()
 
-@pytest.mark.smoke # pytest -k test_logout_successful test_check_pytest.py
+@pytest.mark.smoke_market # pytest -k test_logout_successful test_check_pytest.py
 def test_logout_successful(browser, selenium_action, login, logout):
     """Проверка выхода"""
     login()
@@ -22,7 +22,7 @@ def test_logout_successful(browser, selenium_action, login, logout):
     print('Выход успешный')
     selenium_action.action_close_current_window()
 
-@pytest.mark.smoke # pytest -k test_sort_products_successful test_check_pytest.py
+@pytest.mark.smoke_market # pytest -k test_sort_products_successful test_check_pytest.py
 def test_sort_products_successful(browser, selenium_action, login, logout, sort_products):
     """Проверка сортировки"""
     login()
@@ -34,7 +34,7 @@ def test_sort_products_successful(browser, selenium_action, login, logout, sort_
     logout()
     selenium_action.action_close_current_window()
 
-@pytest.mark.smoke # pytest -k test_get_product_successful test_check_pytest.py
+@pytest.mark.smoke_market # pytest -k test_get_product_successful test_check_pytest.py
 def test_get_product_successful(browser, selenium_action, login, logout, get_product):
     """Проверка покупки"""
     login()

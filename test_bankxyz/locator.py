@@ -1,54 +1,60 @@
 from selenium.webdriver.common.by import By
 
-"""other"""
-locator_button_home = (By.CSS_SELECTOR, 'button.btn.home[ng-click="home()"]')
-"""login"""
-locator_button_login_customer = (By.CSS_SELECTOR, 'div.center:nth-child(1) > button:nth-child(1)')
-locator_button_login_manager = (By.CSS_SELECTOR, 'div.center:nth-child(3) > button:nth-child(1)')
-"""customer"""
-locator_select_user_name = (By.XPATH, '//*[@id="userSelect"]')
+"""Вход"""
+locator_button_login_customer = (By.XPATH,'/html/body/div/div/div[2]/div/div[1]/div[1]/button')
+locator_button_login_bank_manager = (By.XPATH,'/html/body/div/div/div[2]/div/div[1]/div[2]/button')
+locator_button_your_name = (By.XPATH,'//*[@id="userSelect"]')
+locator_button_harry_potter = (By.XPATH,'//*[@id="userSelect"]/option[3]')
+locator_button_ron_weasly = (By.XPATH,'//*[@id="userSelect"]/option[4]')
+locator_button_your_name_login = (By.XPATH,'/html/body/div/div/div[2]/div/form/button')
 locator_select_hermoine = (By.XPATH, '//*[@id="userSelect"]/option[2]')
 locator_select_harry = (By.XPATH, '//*[@id="userSelect"]/option[3]')
-locator_select_ron = (By.XPATH, '//*[@id="userSelect"]/option[4]')
 locator_select_albus = (By.XPATH, '//*[@id="userSelect"]/option[5]')
 locator_select_neville = (By.XPATH, '//*[@id="userSelect"]/option[6]]')
 locator_select_login_button = (By.CSS_SELECTOR, 'button.btn:nth-child(2)')
-"""account"""
-locator_button_transactions = (By.CSS_SELECTOR, 'button.tab[ng-click="transactions()"]')
-locator_button_deposit = (By.CSS_SELECTOR, 'button.tab[ng-click="deposit()"]')
-locator_button_withdrawal = (By.CSS_SELECTOR, 'button.tab[ng-click="withdrawl()"]')
-locator_input_amount = (By.CSS_SELECTOR, 'input.form-control[ng-model="amount"]')
-locator_input_deposit = (By.CSS_SELECTOR, 'button.btn.btn-default[value="Deposit"]')
-locator_input_withdraw = (By.CSS_SELECTOR, 'button.btn.btn-default[value="Withdraw"]')
-locator_select_account_currency = (By.XPATH, '//select[@id="accountSelect"]')
-locator_select_account_currency_option_dollar = (By.XPATH, '//option[@label="1004"]')
-locator_select_account_currency_option_pound = (By.XPATH, '//option[@label="1005"]')
-locator_select_account_currency_option_rupee = (By.XPATH, '//option[@label="1006"]')
 
-locator_error_message = (By.XPATH, '//span[@class="error ng-binding" and @ng-show="message" and not(text())]')
-locator_success_message = (By.XPATH, '//span[@class="error ng-binding"]')
+"""Выход, домой"""
+locator_button_logout = (By.XPATH,'/html/body/div/div/div[1]/button[2]')
+locator_button_bank_home = (By.XPATH,'/html/body/div/div/div[1]/button[1]')
 
+"""Транзакции"""
+locator_button_count_select = (By.XPATH,'//*[@id="accountSelect"]')
+locator_count_1004 = (By.XPATH,'//*[@id="accountSelect"]/option[1]')
+locator_count_1005 = (By.XPATH,'//*[@id="accountSelect"]/option[2]')
+locator_button_deposit = (By.XPATH,'/html/body/div/div/div[2]/div/div[3]/button[2]')
+locator_button_withdrawl = (By.XPATH,'/html/body/div/div/div[2]/div/div[3]/button[3]')
+locator_button_transactions = (By.XPATH,'/html/body/div/div/div[2]/div/div[3]/button[1]')
+locator_field_amount = (By.XPATH,'/html/body/div/div/div[2]/div/div[4]/div/form/div/input')
+locator_confirm_deposit = (By.XPATH,'/html/body/div/div/div[2]/div/div[4]/div/form/button')
+locator_confirm_withdrawl = (By.XPATH,'/html/body/div/div/div[2]/div/div[4]/div/form/button')
+locator_transactions_back = (By.XPATH,'/html/body/div/div/div[2]/div/div[1]/button[1]')
+locator_transactions_reset = (By.XPATH,'/html/body/div/div/div[2]/div/div[1]/button[2]')
+locator_data_start = (By.XPATH,'//*[@id="start"]')
+locator_data_end = (By.XPATH,'//*[@id="end"]')
+locator_message_successful = (By.XPATH,'/html/body/div/div/div[2]/div/div[4]/div/span')
+locator_scroll_right = (By.XPATH,'/html/body/div/div/div[2]/div/div[3]/button[3]')
+locator_scroll_left = (By.XPATH,'/html/body/div/div/div[2]/div/div[3]/button[1]')
+locator_scroll_top = (By.XPATH,'/html/body/div/div/div[2]/div/div[3]/button[2]')
+
+"""Действия работника добавление клиента"""
+locator_button_add_customer = (By.XPATH,'/html/body/div/div/div[2]/div/div[1]/button[1]')
+locator_first_name = (By.XPATH,'/html/body/div/div/div[2]/div/div[2]/div/div/form/div[1]/input')
+locator_last_name = (By.XPATH,'/html/body/div/div/div[2]/div/div[2]/div/div/form/div[2]/input')
+locator_post_code = (By.XPATH,'/html/body/div/div/div[2]/div/div[2]/div/div/form/div[3]/input')
+locator_button_add_customer_confirm = (By.XPATH,'/html/body/div/div/div[2]/div/div[2]/div/div/form/button')
 locator_assert_td_ng_binding_1 = (By.CSS_SELECTOR, 'td.ng-binding')
-locator_assert_td_ng = selenium_action.action_check_element_presence(locator_assert_td_ng_binding_1)
-containt_in_assert_td_ng = False
-for element in locator_assert_td_ng:
-    if "ыы" in element.text:
-        containt_in_assert_td_ng = True
-        break
-assert containt_in_assert_td_ng, "Элемент ЫЫ тосибоси"
+locator_assert_td_ng_binding_2 = (By.XPATH,"/td[contains(text(), 'Farell']")
 
-locator_assert_td_ng_binding_2 = (By.XPATH, "//td[contains(text(), 'ыы')]")
-locator_assert_td_ng = selenium_action.action_check_element_presence(locator_assert_td_ng_binding_2)
-assert locator_assert_td_ng is not None, "Элемент не найден"
+"""Действия работника открытие счета"""
+locator_button_open_account = (By.XPATH,'/html/body/div/div/div[2]/div/div[1]/button[2]')
+locator_customer_name = (By.XPATH,'//*[@id="userSelect"]')
+locator_customer_potter = (By.XPATH,'//*[@id="userSelect"]/option[3]')
+locator_currency = (By.XPATH,'//*[@id="currency"]')
+locator_currency_rupee = (By.XPATH,'//*[@id="currency"]/option[4]')
+locator_button_process = (By.XPATH,'/html/body/div/div/div[2]/div/div[2]/div/div/form/button')
 
-def assert_check_element_in_elements(self, locator, text):
-    elements = self.driver.find_elements(*locator)
-    for element in elements:
-        if text in element.text:
-            return True
-    return False
-
-locator_assert_td_ng_binding_1 = (By.CSS_SELECTOR, 'td.ng-binding')
-contains_ыы = selenium_action.assert_check_element_in_elements(driver, locator_assert_td_ng_binding_1, "ыы")
-print("Строка 'ыы' найдена:", contains_ыы)
-assert contains_ыы == True, "Строка найдена"
+"""Действия работника список клиентов"""
+locator_button_list_customer = (By.XPATH,'/html/body/div/div/div[2]/div/div[1]/button[3]')
+locator_search = (By.XPATH,'/html/body/div/div/div[2]/div/div[2]/div/form/div/div/input')
+locator_delete_customer = (By.XPATH,'/html/body/div/div/div[2]/div/div[2]/div/div/table/tbody/tr[5]/td[5]/button')
+locator_search_result = (By.XPATH,'/html/body/div/div/div[2]/div/div[2]/div/div/table/tbody/tr/td[2]')

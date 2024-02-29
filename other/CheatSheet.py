@@ -96,7 +96,7 @@ file_path = project_root / "folder" / "file.exe"
 # parent - возвращает родительский каталог указанного пути
 """pathlib"""
 # Создание объекта Path из относительного пути
-file_path = Path("folder/file.exe")
+file_path_path = Path("folder/file.exe")
 # Преобразование относительного пути в абсолютный
 absolute_path = file_path.resolve()
 print(absolute_path)
@@ -105,8 +105,6 @@ if file_path.exists():
     print("Файл существует.")
 else:
     print("Файл не существует.")
-# Создание объекта Path из пути к файлу
-file_path = Path("folder/file.exe")
 # Получение размера файла в байтах
 file_size = file_path.stat().st_size
 print(f"Размер файла: {file_size} байт.")
@@ -114,8 +112,6 @@ print(f"Размер файла: {file_size} байт.")
 new_directory = Path("новый_каталог")
 # Создание нового каталога
 new_directory.mkdir()
-# Создание объекта Path из пути к файлу
-file_path = Path("folder/file.exe")
 # Получение размера файла в мегабайтах
 file_size_mb = file_path.stat().st_size / (1024 * 1024)
 print(f"Размер файла: {file_size_mb:.2f} МБ")
