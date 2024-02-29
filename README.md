@@ -13,11 +13,11 @@ flowchart TD
         C -->|Содержит| R(test_step)
         C -->|Содержит| T(test_check)
         C -->|Содержит| Y(test_data)
-    Y -->|Импортирует адрес в Browser| E
-    W -->|Импортирует драйвер в Browser| E
-    R -->|Импортирует шаги в тесты с проверками| T
-    Q -->|Импортирует экшоны в selenium_action| E
-    E -->|Импортирует Browser и selenium_action и прочие импорты| R
+    Y -->|Импорт адреса в Browser| E
+    W -->|Веб-райвер в Browser| E
+    R -->|Импорт шагов в тесты с проверками| T
+    Q -->|Импорт экшонов в selenium_action| E
+    E -->|Импорт Browser и selenium_action и *| R
 ```
 Альтернативная "интуитивно понятная" диаграмма
 ```mermaid
