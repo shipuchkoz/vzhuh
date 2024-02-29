@@ -2,9 +2,8 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from config.action import SeleniumAction
-from test_bankxyz.data import *
+from test_bankxyz.data import driver_get_bankxyz
 import os
-
 
 @pytest.fixture
 def browser():
@@ -15,7 +14,6 @@ def browser():
     driver.get(driver_get_bankxyz)
     yield driver
     driver.quit()
-
 
 @pytest.fixture
 def selenium_action(browser):

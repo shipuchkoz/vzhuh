@@ -2,6 +2,8 @@ from config.config_saucedemo import *
 from test_saucedemo.locator import *
 from test_saucedemo.test_data import *
 
+"""ШАГИ"""
+
 @pytest.fixture
 def login(browser, selenium_action): # pytest -k login test_step.py
     def login_function():
@@ -37,3 +39,34 @@ def get_product(browser, selenium_action): # pytest -k get_product test_step.py
         selenium_action.action_click_element(locator_button_submit)
         selenium_action.action_click_element(locator_button_finish)
     yield get_product_function
+
+"""ПРОВЕРКИ"""
+
+@pytest.fixture
+def login_successful(browser):
+    def test_login_successful_function():
+        assert "https://www.saucedemo.com/inventory.html" in browser.current_url.lower()
+        print('\n--- Вход успешный ---')
+    yield test_login_successful_function
+
+@pytest.fixture
+def logout_successful(browser):
+    def test_logout_successful_function():
+        assert "https://www.saucedemo.com/" in browser.current_url.lower()
+        print('\n--- Выход успешный ---')
+    yield test_logout_successful_function
+
+@pytest.fixture
+def sort_products_successful(browser, selenium_action):
+    def sort_products_successful_function():
+        first_product_id = selenium_action.action_get_attribute(locator_sort_first_prod, "id")
+        assert first_product_id == "item_2_img_link"
+        print('\n--- Сортировка успешна ---')
+    yield sort_products_successful_function
+
+@pytest.fixture
+def get_product_successful(browser):
+    def get_product_successful_function():
+        assert "https://www.saucedemo.com/checkout-complete.html" in browser.current_url.lower()
+        print('\n--- Покупка успешна ---')
+    yield get_product_successful_function

@@ -10,6 +10,8 @@ class SeleniumAction:
     def __init__(self, driver):
         self.driver = driver
 
+    """ЭКШОНЫ"""
+
     def action_click_element(self, locator, timeout=10):  # нажатие на элемент
         try:
             element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
@@ -269,14 +271,18 @@ class SeleniumAction:
         except Exception as e:
             print(f"Ошибка создания скриншота: {e}")
 
-    def assert_check_element_in_elements(self, locator, text):
+    """ПРОВЕРКИ"""
+
+    def assert_check_element_in_elements(self, locator, text): # сверяет текст в элементе с заданным
         elements = self.driver.find_elements(*locator)
         for element in elements:
             if text in element.text:
                 return True
         return False
 
-    def get_all_elements(self):
+    """ПРОЧЕЕ"""
+
+    def get_all_elements(self): # делает список локаторов, вроде)
         elements = self.driver.find_elements(By.XPATH, "//*")
         for element in elements:
             outer_html = element.get_attribute('outerHTML')

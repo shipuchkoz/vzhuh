@@ -15,7 +15,7 @@ flowchart TD
         C -->|Содержит| Y(test_data)
     Y -->|Импорт адреса в Browser| E
     W -->|Веб-райвер в Browser| E
-    R -->|Импорт шагов в тесты с проверками| T
+    R -->|Импорт методов-шагов в тесты с проверками| T
     Q -->|Импорт экшонов в selenium_action| E
     E -->|Импорт Browser и selenium_action и *| R
 ```

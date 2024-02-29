@@ -1,3 +1,5 @@
+    """ЧЕРНОВИЧОК"""
+
     wait = WebDriverWait(browser, 10) # ожидание 1 секунда
     element = wait.until(EC.visibility_of_element_located((By.XPATH, 'xpath'))) # ожидание видимости XPATH
     driver.quit() # закрытие окон после тестов
