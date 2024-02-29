@@ -7,7 +7,7 @@ def run_all():  # команда в консоли: python start_class.py run_al
     subprocess.run(["pytest", "test_check.py", "-k", "TestSaucedemoChecks", "--verbose", "--tb=long", "--color=yes"])
 
 def run_login():  # команда в консоли: python start_class.py run_login
-    """ВСЕ ТЕСТЫ""" # pytest test_check_class.py -k TestSaucedemoLogin
+    """ЛОГИН""" # pytest test_check_class.py -k TestSaucedemoLogin
     print("Запускаю тест логина")
     subprocess.run(["pytest", "test_check_class.py", "-k", "TestSaucedemoLogin", "--verbose", "--tb=long", "--color=yes"])
 

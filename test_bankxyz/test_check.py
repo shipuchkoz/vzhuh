@@ -1,11 +1,4 @@
 from test_bankxyz.test_step import *
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.action_chains import ActionChains
-
-# pytest test_check_pytest.py \ pytest -m smoke test_check_pytest.py
 
 class TestBankChecks:
     def test_login_successful_bank(self, browser, selenium_action, login_bank_customer):
