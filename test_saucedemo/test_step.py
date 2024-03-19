@@ -1,12 +1,13 @@
-from vzhuh.config import *
-from test_saucedemo.locator import *
-from test_saucedemo.test_data import *
+from vzhuh.config.config_param import *
+from vzhuh.test_saucedemo.locator import *
+from vzhuh.test_saucedemo.test_data import *
 
 """ШАГИ"""
 
 @pytest.fixture
 def login(browser, selenium_action): # pytest -k login test_step.py
     def login_function():
+        get_driver_path('firefox')
         browser.get(data_web_adres)
         selenium_action.action_fill_input(locator_field_user_name, data_standard_user)
         selenium_action.action_fill_input(locator_field_user_pass, data_password)

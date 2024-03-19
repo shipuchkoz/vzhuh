@@ -1,10 +1,11 @@
-from vzhuh.config import *
-from test_bankxyz.locator import *
-from test_bankxyz.data import *
+from vzhuh.config.config_param import *
+from vzhuh.test_bankxyz.locator import *
+from vzhuh.test_bankxyz.data import *
 
 @pytest.fixture
 def login_bank_customer(browser, selenium_action): # pytest -k login test_step.py
     def login_bank_customer_function():
+        get_driver_path('chrome')
         browser.get(driver_get_bankxyz)
         selenium_action.action_click_element(locator_button_login_customer)
     yield login_bank_customer_function
@@ -21,7 +22,6 @@ def login_bank_potter(browser, selenium_action): # pytest -k login test_step.py
 @pytest.fixture
 def login_bank_customer_hermoine(browser, selenium_action): # pytest -k login test_step.py
     def login_bank_customer_hermoine_function():
-        browser.get(driver_get_bankxyz)
         selenium_action.action_click_element(locator_select_hermoine)
         selenium_action.action_wait_on_page(1000)
         selenium_action.action_click_element(locator_select_login_button)

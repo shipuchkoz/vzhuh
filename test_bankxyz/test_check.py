@@ -1,4 +1,4 @@
-from test_bankxyz.test_step import *
+from vzhuh.test_bankxyz.test_step import *
 
 class TestBankChecks:
     def test_login_successful_bank(self, browser, selenium_action, login_bank_customer):

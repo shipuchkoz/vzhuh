@@ -7,7 +7,7 @@ from test_saucedemo.test_data import *
 
 @pytest.fixture
 def browser():
-    gecko_path = r"../../../config/geckodriver.exe"
+    gecko_path = r"../../../config/webdrivers/geckodriver.exe"
     web_service = Service(gecko_path)
     driver = webdriver.Firefox(service=web_service)
     yield driver

@@ -1,0 +1,1 @@
+atom_path = r"C:\Users\Lena\AppData\Local\Mail.Ru\Atom\Application\atom.exe"
