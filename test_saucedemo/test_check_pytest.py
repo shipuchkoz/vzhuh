@@ -1,4 +1,5 @@
 from vzhuh.test_saucedemo.test_step import *
+import allure
 
 @pytest.mark.smoke_market
 def test_login_successful(browser, selenium_action, login, login_successful, logout):

@@ -45,14 +45,13 @@ def get_driver_path(browser_name):
 
 
 # Фикстура для создания браузера
-@pytest.fixture(params=['firefox_mob'])
+@pytest.fixture(params=['chrome'])
 def browser(request):
     browser_name = request.param
     driver_path = get_driver_path(browser_name)
     if browser_name.lower() == 'chrome':
         service = ChromeService(executable_path=driver_path)
         options_c = ChromeOptions()
-        options_c.add_argument("-headless")
         options_c.add_argument("user-agent=Firefox")
         driver = webdriver.Chrome(service=service, options=options_c)
     elif browser_name.lower() == 'chrome_mob':

@@ -1,0 +1,1 @@
+{"uuid": "1f48cba5-e693-4a63-9d09-aa9e93a55c18", "children": ["29d19061-c41a-43ef-a00d-f43aae2439bc"], "befores": [{"name": "login_bank_weasly", "status": "passed", "start": 1712085191206, "stop": 1712085191206}], "afters": [{"name": "login_bank_weasly::0", "status": "passed", "start": 1712085198890, "stop": 1712085198890}], "start": 1712085191206, "stop": 1712085198890}

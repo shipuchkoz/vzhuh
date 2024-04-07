@@ -1,17 +1,20 @@
 from vzhuh.config.config_param import *
 from vzhuh.test_saucedemo.locator import *
 from vzhuh.test_saucedemo.test_data import *
+import allure
 
 """ШАГИ"""
 
 @pytest.fixture
 def login(browser, selenium_action): # pytest -k login test_step.py
     def login_function():
-        get_driver_path('firefox')
+        get_driver_path('chrome')
         browser.get(data_web_adres)
         selenium_action.action_fill_input(locator_field_user_name, data_standard_user)
         selenium_action.action_fill_input(locator_field_user_pass, data_password)
         selenium_action.action_click_element(locator_button_login)
+        allure.step("Делаем скришот:")
+        allure.attach(browser.get_screenshot_as_png(), name="screenshot_login", attachment_type=allure.attachment_type.PNG)
     yield login_function
 
 @pytest.fixture
@@ -19,6 +22,8 @@ def logout(browser, selenium_action): # pytest -k logout test_step.py
     def logout_function():
         selenium_action.action_click_element(locator_button_menu)
         selenium_action.action_click_element(locator_button_logout)
+        allure.step("Делаем скришот:")
+        allure.attach(browser.get_screenshot_as_png(), name="screenshot_logout", attachment_type=allure.attachment_type.PNG)
     yield logout_function
 
 @pytest.fixture
@@ -26,6 +31,8 @@ def sort_products(browser, selenium_action): # pytest -k sort_products test_step
     def sort_products_function():
         selenium_action.action_click_element(locator_sort)
         selenium_action.action_select_dropdown_option(locator_sort, data_sort_option_low)
+        allure.step("Делаем скришот:")
+        allure.attach(browser.get_screenshot_as_png(), name="screenshot_sort_products", attachment_type=allure.attachment_type.PNG)
     yield sort_products_function
 
 @pytest.fixture
@@ -40,6 +47,8 @@ def get_product(browser, selenium_action): # pytest -k get_product test_step.py
         selenium_action.action_fill_input(locator_field_postal_code, data_zip_code)
         selenium_action.action_click_element(locator_button_submit)
         selenium_action.action_click_element(locator_button_finish)
+        allure.step("Делаем скришот:")
+        allure.attach(browser.get_screenshot_as_png(), name="screenshot_get_product", attachment_type=allure.attachment_type.PNG)
     yield get_product_function
 
 """ПРОВЕРКИ"""

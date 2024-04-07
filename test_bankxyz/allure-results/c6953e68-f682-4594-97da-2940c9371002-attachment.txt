@@ -1,0 +1,10 @@
+Ожидание завершено после 1.00 секунд
+Счет открыт успешно
+Ошибка при закрытии активного окна: Alert Text: None
+Message: Dismissed user prompt dialog: Account created successfully with account Number :1016
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:193:5
+UnexpectedAlertOpenError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:800:5
+GeckoDriver.prototype._handleUserPrompts@chrome://remote/content/marionette/driver.sys.mjs:2835:13
+
